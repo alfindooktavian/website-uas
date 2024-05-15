@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+body {
+    font-family: 'Quicksand', sans-serif;
+}
+
+.bg-dark {
+    background: #808080 !important;
+}
+
+.breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    padding: .5rem 1rem;
+    margin-bottom: 1rem;
+    list-style: none;
+    background-color: #808080; /* Warna yang diperbarui */
+    border-radius: 0px !important;
+}
+
+.breadcrumb a {
+    color: white;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+    display: inline-block;
+    padding-right: .5rem;
+    color: white;
+    content: "/";
+}
+
+.breadcrumb-item.active {
+    color: white;
+}
+/* slider gambar */
+.carousel-item img {
+    width: 950px; /* Menetapkan lebar gambar menjadi 950 piksel */
+    height: 400px; /* Menetapkan tinggi gambar menjadi 400 piksel */
+    object-fit: cover; /* Menjaga proporsi aspek gambar dan memotong bagian yang melebihi dimensi yang ditentukan */
+}
+/* berita gambar */
+.card-img img {
+    width: 400px;
+    height: 250px;
+    object-fit: cover;
+    border-top-left-radius: .3rem;
+    border-top-right-radius: .3rem;
+}
+
+#carousel-indicator {
+    position: relative;
+}
+
+.indicator-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    border-radius: 50%;
+    background-color: #ccc;
+}
+
+.carousel-indicators .active .indicator-dot {
+    background-color: #333;
+}
