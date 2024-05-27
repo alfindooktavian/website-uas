@@ -257,7 +257,7 @@ adipisicing elit</h6>
     <div class="card h-100 shadow-sm border-0 rounded-lg">
         <div class="card-img">
             <video width="100%" height="200" controls>
-                <source src="{{ asset('videos/vidio1.mp4') }}" type="video/mp4">
+                <source src="{{ asset('videos/vidio2.mp4') }}" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>

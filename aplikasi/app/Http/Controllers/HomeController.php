@@ -2,77 +2,68 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     /**
-     * Menampilkan tampilan welcome.
+     * Create a new controller instance.
      *
-     * @return \Illuminate\View\View
+     * @return void
      */
-    public function showWelcome()
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['showWelcome']);
+    }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return Renderable
+     */
+    public function index(): Renderable
+    {
+        return view('home');
+    }
+
+    /**
+     * Show the welcome page.
+     *
+     * @return Renderable
+     */
+    public function showWelcome(): Renderable
     {
         return view('welcome');
     }
 
-    /**
-     * Menampilkan tampilan berita.
-     *
-     * @return \Illuminate\View\View
-     */
-    public function showBerita()
+    // Metode lainnya...
+    public function showBerita(): Renderable
     {
         return view('berita');
     }
 
-    /**
-     * Menampilkan tampilan agenda.
-     *
-     * @return \Illuminate\View\View
-     */
-    public function showAgenda()
+    public function showAgenda(): Renderable
     {
         return view('agenda');
     }
 
-    /**
-     * Menampilkan tampilan agenda single.
-     *
-     * @return \Illuminate\View\View
-     */
-    public function showAgendasingle()
+    public function showAgendasingle(): Renderable
     {
         return view('agendasingle');
     }
 
-     /**
-     * Menampilkan tampilan foto.
-     *
-     * @return \Illuminate\View\View
-     */
-    public function showFoto()
+    public function showFoto(): Renderable
     {
         return view('foto');
     }
 
-     /**
-     * Menampilkan tampilan video.
-     *
-     * @return \Illuminate\View\View
-     */
-    public function showVideo()
+    public function showVideo(): Renderable
     {
         return view('video');
     }
 
-    
-     /**
-     * Menampilkan tampilan kontak.
-     *
-     * @return \Illuminate\View\View
-     */
-    public function showKontak()
+    public function showKontak(): Renderable
     {
         return view('kontak');
     }
