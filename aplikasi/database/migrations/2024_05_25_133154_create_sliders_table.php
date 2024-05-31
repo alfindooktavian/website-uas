@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('sliders', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('image'); // Menambahkan kolom image
+            $table->timestamps(); // Menambahkan kolom created_at dan updated_at
         });
     }
 

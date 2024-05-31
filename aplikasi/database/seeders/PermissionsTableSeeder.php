@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
+use App\Models\User;
 
 class PermissionsTableSeeder extends Seeder
 {
@@ -40,5 +41,9 @@ class PermissionsTableSeeder extends Seeder
 
         // Assign all permissions to 'admin' role
         $adminRole->syncPermissions($permissions);
+
+        // Find the user with ID 3 and assign 'admin' role to them
+        $user = User::find(3); // Change 3 to the ID of the user you want to assign permissions to
+        $user->assignRole($adminRole);
     }
 }

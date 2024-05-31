@@ -12,7 +12,7 @@
                     <h4><i class="fas fa-key"></i> Permissions</h4>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('admin.permission.index') }}" method="GET">
+                    <form action="{{ route('admin.permissions.index') }}" method="GET">
                         <div class="form-group">
                             <div class="input-group mb-3">
                                 <input type="text" class="form-control" name="q" placeholder="Cari berdasarkan nama permissions">
@@ -32,10 +32,10 @@
                             </thead>
                             <tbody>
                                 @foreach ($permissions as $no => $permission)
-                                <tr>
-                                    <th scope="row" style="text-align: center">{{ ++$no + ($permissions->currentPage()-1) * $permissions->perPage() }}</th>
-                                    <td>{{ $permission->name }}</td>
-                                </tr>
+                                    <tr>
+                                        <th scope="row" style="text-align: center">{{ ++$no + ($permissions->currentPage()-1) * $permissions->perPage() }}</th>
+                                        <td>{{ $permission->name }}</td>
+                                    </tr>
                                 @endforeach
                             </tbody>
                         </table>
@@ -48,4 +48,4 @@
         </div>
     </section>
 </div>
-@endsection
+@stop

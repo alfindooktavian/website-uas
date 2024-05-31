@@ -8,27 +8,27 @@ use Spatie\Permission\Models\Role;
 
 class UserTableSeeder extends Seeder
 {
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
     public function run()
     {
-        // Ambil pengguna dengan ID 3
-        $user = User::find(3);
-
-        // Periksa apakah pengguna ditemukan
-        if ($user) {
-            // Temukan peran "admin"
-            $adminRole = Role::where('name', 'admin')->first();
-
-            // Jika peran "admin" ditemukan
-            if ($adminRole) {
-                // Berikan peran "admin" kepada pengguna
-                $user->assignRole($adminRole->name);
-            } else {
-                // Jika peran "admin" tidak ditemukan, beri tahu pengguna
-                $this->command->info('Role "admin" tidak ditemukan.');
-            }
-        } else {
-            // Jika pengguna dengan ID 3 tidak ditemukan, beri tahu pengguna
-            $this->command->info('Pengguna dengan ID 3 tidak ditemukan.');
+        // Temukan atau buat peran "admin"
+        $adminRole = Role::where('name', 'admin')->first();
+        if (!$adminRole) {
+            $adminRole = Role::create(['name' => 'admin']);
         }
+
+        // Ambil semua pengguna
+        $users = User::all();
+
+        // Berikan peran "admin" kepada setiap pengguna
+        foreach ($users as $user) {
+            $user->assignRole($adminRole);
+        }
+
+        $this->command->info('Hak akses "admin" diberikan kepada semua pengguna.');
     }
 }

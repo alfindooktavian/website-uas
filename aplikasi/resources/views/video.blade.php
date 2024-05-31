@@ -156,7 +156,7 @@ BAKTI</button>
 <button class="btn btn-sm btn-outline-secondary mb-
 2">PRAMUKA</button>
 </div>
-<div class="col-md-4">60
+<div class="col-md-4">
 <h5>KONTAK</h5>
 <hr>
 <p>
