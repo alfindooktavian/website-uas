@@ -74,3 +74,36 @@ function deleteRole(id) {
         alert("Terjadi kesalahan saat menghapus peran.");
     });
 }
+
+// Fungsi untuk menghapus pengguna
+function deleteUser(id) {
+    var token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+    
+    // Kirim permintaan AJAX untuk menghapus pengguna
+    fetch("/admin/users/" + id, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': token
+        },
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Terjadi kesalahan saat menghapus pengguna.'); // Handling kesalahan jika status respons tidak ok
+        }
+        return response.json();
+    })
+    .then(data => {
+        if (data.status == "success") {
+            alert("Pengguna berhasil dihapus.");
+            // Reload halaman
+            location.reload();
+        } else {
+            throw new Error('Gagal menghapus pengguna.');
+        }
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+        alert("Terjadi kesalahan saat menghapus pengguna.");
+    });
+}

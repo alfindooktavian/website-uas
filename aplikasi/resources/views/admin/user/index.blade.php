@@ -53,7 +53,7 @@
                                         <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-sm btn-primary"><i class="fa fa-pencil-alt"></i></a>
                                         @endcan
                                         @can('users.delete')
-                                        <button onClick="DeleteUser({{ $user->id }})" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+                                        <button onClick="deleteUser({{ $user->id }})" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
                                         @endcan
                                     </td>
                                 </tr>
@@ -70,29 +70,25 @@
     </section>
 </div>
 <script>
-    //ajax delete
-    function DeleteUser(id) {
-        var id = id;
-        var token = $("meta[name='csrf-token']").attr("content");
+    // Fungsi untuk menghapus pengguna
+    function deleteUser(id) {
+        var token = "{{ csrf_token() }}";
         swal({
             title: "APAKAH KAMU YAKIN ?",
             text: "INGIN MENGHAPUS DATA INI!",
             icon: "warning",
-            buttons: [
-                'TIDAK',
-                'YA'
-            ],
+            buttons: ['TIDAK', 'YA'],
             dangerMode: true,
         }).then(function(isConfirm) {
             if (isConfirm) {
-                //ajax delete
-                jQuery.ajax({
-                    url: "{{ url('admin/user') }}/" + id,
+                // Panggil AJAX untuk menghapus pengguna
+                $.ajax({
+                    url: "/admin/users/" + id,
                     data: {
-                        "id": id,
-                        "_token": token
+                        "_token": token,
+                        "_method": "DELETE"
                     },
-                    type: 'DELETE',
+                    type: 'POST',
                     success: function(response) {
                         if (response.status == "success") {
                             swal({
@@ -101,8 +97,6 @@
                                 icon: 'success',
                                 timer: 1000,
                                 showConfirmButton: false,
-                                showCancelButton: false,
-                                buttons: false,
                             }).then(function() {
                                 location.reload();
                             });
@@ -113,18 +107,32 @@
                                 icon: 'error',
                                 timer: 1000,
                                 showConfirmButton: false,
-                                showCancelButton: false,
-                                buttons: false,
                             }).then(function() {
                                 location.reload();
                             });
                         }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error(xhr.responseText);
+                        swal({
+                            title: 'ERROR!',
+                            text: 'Terjadi kesalahan saat menghapus data.',
+                            icon: 'error',
+                            timer: 1000,
+                            showConfirmButton: false,
+                        }).then(function() {
+                            location.reload();
+                        });
                     }
                 });
             } else {
                 return true;
             }
-        })
+        });
     }
 </script>
+
+
+
+
 @stop

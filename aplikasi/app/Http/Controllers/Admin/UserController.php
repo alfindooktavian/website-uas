@@ -77,42 +77,69 @@ class UserController extends Controller
         return redirect()->route('admin.users.index')->with('success', 'Data berhasil disimpan!');
     }
 
-    
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param \App\Models\User $user
+     * @return \Illuminate\Http\Response
+     */
     public function edit(User $user)
-{
-    // Retrieve roles
-    $roles = Role::latest()->get();
+    {
+        // Retrieve roles
+        $roles = Role::latest()->get();
 
-    // Return the edit view with user and roles data
-    return view('admin.user.edit', compact('user', 'roles'));
-}
-public function update(Request $request, User $user)
-{
-    // Validasi data yang diterima dari form
-    $request->validate([
-        'name' => 'required',
-        'email' => 'required|email|unique:users,email,'.$user->id,
-        'password' => 'nullable|confirmed'
-    ]);
-
-    // Perbarui data pengguna
-    $user->name = $request->name;
-    $user->email = $request->email;
-
-    // Perbarui kata sandi jika diinput
-    if ($request->password) {
-        $user->password = Hash::make($request->password);
+        // Return the edit view with user and roles data
+        return view('admin.user.edit', compact('user', 'roles'));
     }
 
-    // Simpan perubahan
-    $user->save();
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\User $user
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, User $user)
+    {
+        // Validasi data yang diterima dari form
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:users,email,'.$user->id,
+            'password' => 'nullable|confirmed'
+        ]);
 
-    // Perbarui peran pengguna
-    $user->syncRoles([$request->role]);
+        // Perbarui data pengguna
+        $user->name = $request->name;
+        $user->email = $request->email;
+
+        // Perbarui kata sandi jika diinput
+        if ($request->password) {
+            $user->password = Hash::make($request->password);
+        }
+
+        // Simpan perubahan
+        $user->save();
+
+        // Perbarui peran pengguna
+        $user->syncRoles([$request->role]);
+
+        // Redirect ke halaman indeks pengguna dengan pesan sukses
+        return redirect()->route('admin.users.index')->with('success', 'Data pengguna berhasil diperbarui!');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param \App\Models\User $user
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(User $user)
+{
+    // Hapus pengguna
+    $user->delete();
 
     // Redirect ke halaman indeks pengguna dengan pesan sukses
-    return redirect()->route('admin.users.index')->with('success', 'Data pengguna berhasil diperbarui!');
+    return response()->json(['status' => 'success']);
+}
 }
 
-    // Metode edit, update, dan destroy tetap sama seperti sebelumnya
-}
