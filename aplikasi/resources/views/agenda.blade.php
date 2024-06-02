@@ -91,56 +91,7 @@ Agenda</a>
  
 
 
-<div class="col-md-6 mb-3" v-for="event in events" :key="event.id">
-<a href="" class="text-decoration-none text-dark">
-<div class="card mb-3 shadow-sm border-0">
-<div class="card-body">
-<h6>Judul Agenda</h6>
-<hr>
-<div>
-<i class="fa fa-map-marker" ariahidden="true"></i> Lokasi Agenda
-</div>
-<div class="mt-2">
-<i class="fa fa-calendar" ariahidden="true"></i> 09-11-2020
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="col-md-6 mb-3" v-for="event in events" :key="event.id">
-<a href="" class="text-decoration-none text-dark">
-<div class="card mb-3 shadow-sm border-0">
-<div class="card-body">
-<h6>Judul Agenda</h6>
-<hr>
-<div>
-<i class="fa fa-map-marker" ariahidden="true"></i> Lokasi Agenda
-</div>
-<div class="mt-2">
-<i class="fa fa-calendar" ariahidden="true"></i> 09-11-2020
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="col-md-6 mb-3" v-for="event in events" :key="event.id">
-<a href="" class="text-decoration-none text-dark">
-<div class="card mb-3 shadow-sm border-0">
-<div class="card-body">
-<h6>Judul Agenda</h6>
-<hr>
-<div>
-<i class="fa fa-map-marker" ariahidden="true"></i> Lokasi Agenda
-</div>
-<div class="mt-2">
-<i class="fa fa-calendar" ariahidden="true"></i> 09-11-2020
-</div>
-</div>
-</div>
-</a>
-</div>
-</div>
-</div>
+
 <footer>
 <div class="container-fluid" style="background: white;">
 <div class="row p-4">

@@ -97,101 +97,7 @@ aria-hidden="true"></i> KONTAK</a>
     </div>
 </div>
 @endforeach
-<div class="col-md-4 mb-4">
-<div class="card h-100 shadow-sm border-0 rounded-lg">
-<div class="card-img">
-<img src="{{ asset('images/gambar11.jpg') }}"
-class="w-100"
-style="height: 200px;object-fit:
-cover;border-top-left-radius: .3rem;border-top-right-radius: .3rem;">
-</div>
-<div class="card-body">
-<a href="http://" class="text-dark textdecoration-none">
-<h6>Lorem ipsum dolor sit amet, consectetur
-adipisicing elit</h6>
-</a>
-</div>
-<div class="card-footer bg-white">
-<i class="fa fa-calendar" ariahidden="true"></i> 09 Juli 2020
-</div>
-</div>
-</div>
-<div class="col-md-4 mb-4">
-<div class="card h-100 shadow-sm border-0 rounded-lg">
-<div class="card-img">
-<img src="{{ asset('images/gambar11.jpg') }}"
-class="w-100"
-style="height: 200px;object-fit:
-cover;border-top-left-radius: .3rem;border-top-right-radius: .3rem;">
-</div>
-<div class="card-body">
-<a href="http://" class="text-dark textdecoration-none">
-<h6>Lorem ipsum dolor sit amet, consectetur
-adipisicing elit</h6>
-</a>
-</div>
-<div class="card-footer bg-white">
-<i class="fa fa-calendar" ariahidden="true"></i> 09 Juli 2020
-</div>
-</div>
-</div>
-<div class="col-md-4 mb-4">
-<div class="card h-100 shadow-sm border-0 rounded-lg">
-<div class="card-img">
-<img src="{{ asset('images/gambar11.jpg') }}"
-class="w-100"
-style="height: 200px;object-fit:
-cover;border-top-left-radius: .3rem;border-top-right-radius: .3rem;">
-</div>
-<div class="card-body">
-<a href="http://" class="text-dark textdecoration-none">
-<h6>Lorem ipsum dolor sit amet, consectetur
-adipisicing elit</h6>
-</a>
-</div>
-<div class="card-footer bg-white">
-<i class="fa fa-calendar" ariahidden="true"></i> 09 Juli 2020
-</div>
-</div>
-</div>
-<div class="col-md-4 mb-4">
-<div class="card h-100 shadow-sm border-0 rounded-lg">
-<div class="card-img">
-<img src="{{ asset('images/gambar11.jpg') }}"
-class="w-100"
-style="height: 200px;object-fit:
-cover;border-top-left-radius: .3rem;border-top-right-radius: .3rem;">
-</div>
-<div class="card-body">
-<a href="http://" class="text-dark textdecoration-none">
-<h6>Lorem ipsum dolor sit amet, consectetur
-adipisicing elit</h6>
-</a>
-</div>
-<div class="card-footer bg-white">
-<i class="fa fa-calendar" ariahidden="true"></i> 09 Juli 2020
-</div>
-</div>
-</div>
-<div class="col-md-4 mb-4">
-<div class="card h-100 shadow-sm border-0 rounded-lg">
-<div class="card-img">
-<img src="{{ asset('images/gambar11.jpg') }}"
-class="w-100"
-style="height: 200px;object-fit:
-cover;border-top-left-radius: .3rem;border-top-right-radius: .3rem;">
-</div>
-<div class="card-body">
-<a href="http://" class="text-dark textdecoration-none">
-<h6>Lorem ipsum dolor sit amet, consectetur
-adipisicing elit</h6>
-</a>
-</div>
-<div class="card-footer bg-white">
-<i class="fa fa-calendar" ariahidden="true"></i> 09 Juli 2020
-</div>
-</div>
-</div>
+
 <!-- end berita section -->
 <!-- foto section -->
 <div class="col-md-12 mb-3 mt-4">
@@ -211,22 +117,7 @@ adipisicing elit</h6>
         </div>
     </div>
     @endforeach
-<div class="col-md-6 mb-4">
-<div class="card h-100 shadow-sm border-0 rounded-lg">
-<div class="card-img">
-<img src="{{ asset('images/gambar5.png') }}"
-class="w-100"
-style="height: 200px;object-fit:18
-cover;border-top-left-radius: .3rem;border-top-right-radius: .3rem;">
-</div>
-<div class="card-body">
-<a href="http://" class="text-dark textdecoration-none">
-<h6>Lorem ipsum dolor sit amet, consectetur
-adipisicing elit</h6>
-</a>
-</div>
-</div>
-</div>
+
 <!-- send foto section -->
 <!-- video section -->
 <div class="col-md-12 mb-3 mt-4">
@@ -246,21 +137,7 @@ adipisicing elit</h6>
     </div>
 </div>
 @endforeach
-<div class="col-md-6 mb-4">
-    <div class="card h-100 shadow-sm border-0 rounded-lg">
-        <div class="card-img">
-            <video width="100%" height="200" controls>
-                <source src="{{ asset('videos/vidio2.mp4') }}" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-        <div class="card-body">
-            <a href="http://" class="text-dark textdecoration-none">
-                <h6>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h6>
-            </a>
-        </div>
-    </div>
-</div>
+
 <!-- end video section -->
 </div>
 </div>
@@ -287,51 +164,18 @@ adipisicing elit</h6>
     @endforeach
 
 
-<div class="card mb-3 shadow-sm border-0">
-<div class="card-body">
-<h6>Lorem ipsum dolor sit amet, consectetur adipisicing
-elit</h6>
-<hr>
-<div>
-<i class="fa fa-map-marker" aria-hidden="true"></i>
-Aula Sekolah
-</div>
-<div class="mt-2">
-<i class="fa fa-calendar" aria-hidden="true"></i> 20
-Juli 2020
-</div>
-</div>
-</div>
-<div class="card mb-3 shadow-sm border-0">
-<div class="card-body">
-<h6>Lorem ipsum dolor sit amet, consectetur adipisicing
-elit</h6>
-<hr>
-<div>
-<i class="fa fa-map-marker" aria-hidden="true"></i>
-Aula Sekolah
-</div>
-<div class="mt-2">
-<i class="fa fa-calendar" aria-hidden="true"></i> 20
-Juli 2020
-</div>
-</div>
-</div>
+
 <!-- end agenda section -->
 <!-- kategori section -->
 <div class="title mb-4 mt-5">
-<h4><i class="fa fa-folder" aria-hidden="true"></i> KATEGORI
-BERITA</h4>
+    <h4><i class="fa fa-folder" aria-hidden="true"></i> KATEGORI BERITA</h4>
 </div>
 <div class="list-group">
-<a href="" class="list-group-item list-group-item-action
-border-0 shadow-sm mb-2 rounded"><i class="fa fa-folder-open" ariahidden="true"></i> OSIS</a>
-<a href="" class="list-group-item list-group-item-action
-border-0 shadow-sm mb-2 rounded"><i class="fa fa-folder-open" ariahidden="true"></i> PRAMUKA</a>
-<a href="" class="list-group-item list-group-item-action
-border-0 shadow-sm mb-2 rounded"><i class="fa fa-folder-open" ariahidden="true"></i> BERITA</a>
-<a href="" class="list-group-item list-group-item-action
-border-0 shadow-sm mb-2 rounded"><i class="fa fa-folder-open" ariahidden="true"></i> INFO</a>
+    @foreach($categories as $category)
+        <a href="{{ route('beritas', ['category_id' => $category->id]) }}" class="list-group-item list-group-item-action border-0 shadow-sm mb-2 rounded">
+            <i class="fa fa-folder-open" aria-hidden="true"></i> {{ $category->name }}
+        </a>
+    @endforeach
 </div>
 <!-- end kategori section -->
 </div>

@@ -7,6 +7,7 @@ use App\Models\Video;
 use App\Models\Slider;
 use App\Models\Event;
 use App\Models\Post;
+use App\Models\Category;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Carbon\Carbon; // Import class Carbon
@@ -38,14 +39,16 @@ class HomeController extends Controller
      *
      * @return Renderable
      */
-    public function showWelcome(): Renderable
+    public function showWelcome(Request $request): Renderable
     {
         $sliders = Slider::all();
         $photos = Photo::latest()->take(2)->get();
         $videos = Video::latest()->take(2)->get();
         $events = Event::latest()->take(3)->get();
         $posts = Post::latest()->take(6)->get();
-        return view('welcome', compact('sliders','photos','videos','events','posts'));
+        $categories = Category::all();
+
+        return view('welcome', compact('sliders', 'photos', 'videos', 'events', 'posts', 'categories'));
     }
 
     // Metode lainnya...
@@ -62,17 +65,25 @@ class HomeController extends Controller
     }
 
      // Metode lainnya...
-     public function showBeritas(): Renderable
+     public function showBeritas(Request $request): Renderable
      {
-        $posts = Post::latest()->paginate(10);
-
-        // Memformat tanggal dalam $events sebelum mengirimkannya ke tampilan
-        foreach ($posts as $post) {
-            $post->formatted_date = Carbon::parse($post->date)->format('d-m-Y');
-        }
-
-        return view('beritas', compact('posts'));
-    }
+         $query = Post::latest();
+ 
+         if ($request->has('category_id')) {
+             $category = Category::findOrFail($request->category_id);
+             $query = $query->where('category_id', $category->id);
+         }
+ 
+         $posts = $query->paginate(10);
+ 
+         foreach ($posts as $post) {
+             $post->formatted_date = Carbon::parse($post->date)->format('d-m-Y');
+         }
+ 
+         $categories = Category::all();
+ 
+         return view('beritas', compact('posts', 'categories'));
+     }
 
     public function showAgenda(): Renderable
     {
