@@ -25,9 +25,12 @@ Route::post('/', [DashboardController::class, 'handlePost'])->name('dashboard.ha
 
 // Rute lainnya
 Route::get('/welcome', [HomeController::class, 'showWelcome'])->name('welcome');
-Route::get('/berita', [HomeController::class, 'showBerita'])->name('berita');
+Route::get('/berita/{id}', [HomeController::class, 'showBerita'])->name('berita');
+Route::get('/beritas', [HomeController::class, 'showBeritas'])->name('beritas');
 Route::get('/agenda', [HomeController::class, 'showAgenda'])->name('agenda');
-Route::get('/agendasingle', [HomeController::class, 'showAgendasingle'])->name('agendasingle');
+// Definisikan rute dengan ID sebagai parameter
+Route::get('/agendasingle/{id}', [HomeController::class, 'showAgendasingle'])->name('agendasingle');
+
 Route::get('/foto', [HomeController::class, 'showFoto'])->name('foto');
 Route::get('/video', [HomeController::class, 'showVideo'])->name('video');
 Route::get('/kontak', [HomeController::class, 'showKontak'])->name('kontak');
@@ -72,6 +75,11 @@ Route::prefix('admin')
 
           // Slider
           Route::resource('sliders', SliderController::class, ['except' => ['show']]);
+
+          /*/ Frontend routes
+Route::get('/foto', [PhotoController::class, 'indexview'])->name('foto');
+*/
+
 
 
         

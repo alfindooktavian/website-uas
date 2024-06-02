@@ -23,7 +23,7 @@ aria-controls="navbarCollapse" aria-expanded="false" arialabel="Toggle navigatio
 <div class="collapse navbar-collapse" id="navbarCollapse">
 <ul class="navbar-nav mr-auto mb-2 mb-md-0">
 <li class="nav-item">
-<a class="nav-link" href="{{ route('berita') }}"><i class="fa fa-book-open"
+<a class="nav-link" href="{{ route('beritas') }}"><i class="fa fa-book-open"
  aria-hidden="true"></i> BERITA</a>
 </li>
 <li class="nav-item">
@@ -72,27 +72,20 @@ Judul Berita</a>
 </nav>
 <!-- end breadcrumb -->
 <div class="container-fluid mt-3 mb-5">
-<div class="row">
-<div class="col-md-8">
-<div class="card border-0 shadow-sm rounded">
-<div class="card-body">
-<h3>Judul Berita</h3>
-<hr>
-<img src="{{ asset('images/gambar5.png') }}" 
-class="w-100 rounded">
-<div class="mt-3">
-Lorem Ipsum is simply dummy text of the printing and
-typesetting industry. Lorem Ipsum has been the industry's standard dummy text
-ever since the 1500s, when an unknown printer took a galley of type and
-scrambled it to make a type specimen book. It has survived not only five
-centuries, but also the leap into electronic typesetting, remaining essentially
-unchanged. It was popularised in the 1960s with the release of Letraset sheets
-containing Lorem Ipsum passages, and more recently with desktop publishing
-software like Aldus PageMaker including versions of Lorem Ipsum.
-</div>
-</div>
-</div>
-</div>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card border-0 shadow-sm rounded">
+                <div class="card-body">
+                    <h3>{{ $post->title }}</h3>
+                    <hr>
+                    <img src="{{ asset('storage/posts/' . $post->image) }}" class="w-100 rounded">
+                    <div class="mt-3">
+                        {!! $post->content !!}
+                    </div>
+                </div>
+            </div>
+        </div>
+   
 <div class="col-md-4">
 <!-- agenda section -->
 <div class="title mb-4">
@@ -164,28 +157,7 @@ border-0 shadow-sm mb-2 rounded"><i class="fa fa-folder-open" ariahidden="true">
 </div>
 </div>
 </div>
-<div class="container-fluid mt-3 mb-5">
-<div class="row">
-<div class="col-md-8">
-<div class="card border-0 shadow-sm rounded">
-<div class="card-body">
-<h3>Judul Berita</h3>
-<hr>
-<img src="{{ asset('images/gambar5.png') }}" 
-class="w-100 rounded">
-<div class="mt-3">
-Lorem Ipsum is simply dummy text of the printing and
-typesetting industry. Lorem Ipsum has been the industry's standard dummy text
-ever since the 1500s, when an unknown printer took a galley of type and
-scrambled it to make a type specimen book. It has survived not only five
-centuries, but also the leap into electronic typesetting, remaining essentially
-unchanged. It was popularised in the 1960s with the release of Letraset sheets
-containing Lorem Ipsum passages, and more recently with desktop publishing
-software like Aldus PageMaker including versions of Lorem Ipsum.
-</div>
-</div>
-</div>
-</div>
+
 <footer>
 <div class="container-fluid" style="background: white;">
 <div class="row p-4">

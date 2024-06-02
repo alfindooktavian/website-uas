@@ -107,3 +107,178 @@ function deleteUser(id) {
         alert("Terjadi kesalahan saat menghapus pengguna.");
     });
 }
+
+// Fungsi untuk menghapus foto
+function deletePhoto(id) {
+    // Dapatkan token CSRF dari meta tag
+    var token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+    
+    // Kirim permintaan AJAX untuk menghapus foto
+    fetch("/admin/photos/" + id, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': token
+        },
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status == "success") {
+            alert("Foto berhasil dihapus.");
+            // Reload halaman
+            location.reload();
+        } else {
+            alert("Gagal menghapus foto.");
+        }
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+        alert("Terjadi kesalahan saat menghapus foto.");
+    });
+}
+
+// Fungsi untuk menghapus video
+function deleteVideo(id) {
+    // Dapatkan token CSRF dari meta tag
+    var token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+    
+    // Kirim permintaan AJAX untuk menghapus video
+    fetch("/admin/videos/" + id, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': token
+        },
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === "success") {
+            alert("Video berhasil dihapus.");
+            // Reload halaman
+            location.reload();
+        } else {
+            alert("Gagal menghapus video.");
+        }
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+        alert("Terjadi kesalahan saat menghapus video.");
+    });
+}
+
+// Fungsi untuk menghapus slider
+function deleteSlider(id) {
+    // Dapatkan token CSRF dari meta tag
+    var token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+    
+    // Kirim permintaan AJAX untuk menghapus slider
+    fetch("/admin/sliders/" + id, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': token
+        },
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === "success") {
+            alert("Slider berhasil dihapus.");
+            // Reload halaman
+            location.reload();
+        } else {
+            alert("Gagal menghapus slider.");
+        }
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+        alert("Terjadi kesalahan saat menghapus slider.");
+    });
+}
+
+// Fungsi untuk menghapus event
+function deleteEvent(id) {
+    // Dapatkan token CSRF dari meta tag
+    var token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+    
+    // Kirim permintaan AJAX untuk menghapus event
+    fetch("/admin/events/" + id, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': token
+        },
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status == "success") {
+            alert("Event berhasil dihapus.");
+            // Reload halaman
+            location.reload();
+        } else {
+            alert("Gagal menghapus event.");
+        }
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+        alert("Terjadi kesalahan saat menghapus event.");
+    });
+}
+
+// Fungsi untuk menghapus tag
+function deleteTag(id) {
+    // Dapatkan token CSRF dari meta tag
+    var token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+    
+    // Kirim permintaan AJAX untuk menghapus tag
+    fetch("/admin/tags/" + id, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': token
+        },
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status == "success") {
+            alert("Tag berhasil dihapus.");
+            // Reload halaman
+            location.reload();
+        } else {
+            alert("Gagal menghapus tag.");
+        }
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+        alert("Terjadi kesalahan saat menghapus tag.");
+    });
+}
+
+
+// Fungsi untuk menghapus postingan
+function deletePost(id) {
+    // Dapatkan token CSRF dari meta tag
+    var token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+    
+    // Kirim permintaan AJAX untuk menghapus postingan
+    fetch("/admin/posts/" + id, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': token
+        },
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status == "success") {
+            alert("Postingan berhasil dihapus.");
+            // Reload halaman
+            location.reload();
+        } else {
+            alert("Gagal menghapus postingan.");
+        }
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+        alert("Terjadi kesalahan saat menghapus postingan.");
+    });
+}

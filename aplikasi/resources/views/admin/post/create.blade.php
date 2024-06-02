@@ -73,8 +73,8 @@
 </div>
 
 <!-- CDN TinyMCE -->
-<script src="https://cdn.tiny.cloud/1/6pj80crtqx4k06q7rpkktewn3nmij5uy62sxmgf22uviqcle/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
+<script src="{{ asset('tinymce/js/tinymce/tinymce.min.js') }}"></script>
 <script>
     var editor_config = {
         selector: "textarea.content",

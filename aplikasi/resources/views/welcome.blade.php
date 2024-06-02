@@ -23,7 +23,7 @@ aria-controls="navbarCollapse" aria-expanded="false" arialabel="Toggle navigatio
 <div class="collapse navbar-collapse" id="navbarCollapse">
 <ul class="navbar-nav mr-auto mb-2 mb-md-0">
 <li class="nav-item">
-<a class="nav-link" href="{{ route('berita') }}"><i class="fa fa-book-open"
+<a class="nav-link" href="{{ route('beritas') }}"><i class="fa fa-book-open"
  aria-hidden="true"></i> BERITA</a>
 </li>
 <li class="nav-item">
@@ -49,20 +49,16 @@ aria-hidden="true"></i> KONTAK</a>
 <!-- slider section -->
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
+        @foreach($sliders as $key => $slider)
+        <li data-target="#myCarousel" data-slide-to="{{ $key }}" class="{{ $key == 0 ? 'active' : '' }}"> </li>
+        @endforeach
     </ol>
     <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img src="{{ asset('images/gambar11.jpg') }}" class="w-100" alt="Slide 1">
+        @foreach($sliders as $key => $slider)
+        <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
+            <img src="{{ asset('storage/sliders/' . $slider->image) }}" class="w-100" alt="Slide {{ $key + 1 }}">
         </div>
-        <div class="carousel-item">
-            <img src="{{ asset('images/gambar2.jpg') }}" class="w-100" alt="Slide 2">
-        </div>
-        <div class="carousel-item">
-            <img src="{{ asset('images/gambar3.jpg') }}" class="w-100" alt="Slide 3">
-        </div>
+        @endforeach
     </div>
     <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -73,6 +69,8 @@ aria-hidden="true"></i> KONTAK</a>
         <span class="sr-only">Next</span>
     </a>
 </div>
+
+
 <!-- end slider section -->
 <div class="container-fluid mt-3 mb-5">
     <div class="row">
@@ -82,25 +80,23 @@ aria-hidden="true"></i> KONTAK</a>
 <div class="col-md-12 mb-3">
 <h4><i class="fas fa-book-open"></i> BERITA TERBARU</h4>
 </div>
+@foreach($posts as $post)
 <div class="col-md-4 mb-4">
-<div class="card h-100 shadow-sm border-0 rounded-lg">
-<div class="card-img">
-<img src="{{ asset('images/gambar5.png') }}"
-class="w-100"
-style="height: 200px;object-fit:
-cover;border-top-left-radius: .3rem;border-top-right-radius: .3rem;">
+    <div class="card h-100 shadow-sm border-0 rounded-lg">
+        <div class="card-img">
+            <img src="{{ asset('storage/posts/' . $post->image) }}" class="w-100" style="height: 200px; object-fit: cover; border-top-left-radius: .3rem; border-top-right-radius: .3rem;">
+        </div>
+        <div class="card-body">
+            <a href="{{ route('berita', ['id' => $post->id]) }}" class="text-dark text-decoration-none">
+                <h6>{{ $post->title }}</h6>
+            </a>
+        </div>
+        <div class="card-footer bg-white">
+            <i class="fa fa-calendar" aria-hidden="true"></i> {{ \Carbon\Carbon::parse($post->created_at)->format('d-m-Y') }}
+        </div>
+    </div>
 </div>
-<div class="card-body">
-<a href="http://" class="text-dark textdecoration-none">
-<h6>Lorem ipsum dolor sit amet, consectetur
-adipisicing elit</h6>
-</a>
-</div>
-<div class="card-footer bg-white">
-<i class="fa fa-calendar" ariahidden="true"></i> 09 Juli 2020
-</div>
-</div>
-</div>
+@endforeach
 <div class="col-md-4 mb-4">
 <div class="card h-100 shadow-sm border-0 rounded-lg">
 <div class="card-img">
@@ -201,22 +197,20 @@ adipisicing elit</h6>
 <div class="col-md-12 mb-3 mt-4">
 <h4><i class="fas fa-images"></i> FOTO TERBARU</h4>
 </div>
-<div class="col-md-6 mb-4">
-<div class="card h-100 shadow-sm border-0 rounded-lg">
-<div class="card-img">
-<img src="{{ asset('images/gambar5.png') }}"
-class="w-100"
-style="height: 200px;object-fit:
-cover;border-top-left-radius: .3rem;border-top-right-radius: .3rem;">
-</div>
-<div class="card-body">
-<a href="http://" class="text-dark textdecoration-none">
-<h6>Lorem ipsum dolor sit amet, consectetur
-adipisicing elit</h6>
-</a>
-</div>
-</div>
-</div>
+@foreach($photos as $photo)
+    <div class="col-md-6 mb-4">
+        <div class="card h-100 shadow-sm border-0 rounded-lg">
+            <div class="card-img">
+                <img src="{{ asset('storage/images/' . $photo->image) }}" class="w-100" style="height: 200px; object-fit: cover; border-top-left-radius: .3rem; border-top-right-radius: .3rem;">
+            </div>
+            <div class="card-body">
+                <a href="{{ route('foto', $photo->id) }}" class="text-dark text-decoration-none">
+                    <h6>{{ $photo->caption }}</h6>
+                </a>
+            </div>
+        </div>
+    </div>
+    @endforeach
 <div class="col-md-6 mb-4">
 <div class="card h-100 shadow-sm border-0 rounded-lg">
 <div class="card-img">
@@ -238,21 +232,20 @@ adipisicing elit</h6>
 <div class="col-md-12 mb-3 mt-4">
     <h4><i class="fas fa-video"></i> VIDEO TERBARU</h4>
 </div>
+@foreach($videos as $video)
 <div class="col-md-6 mb-4">
     <div class="card h-100 shadow-sm border-0 rounded-lg">
-        <div class="card-img">
-            <video width="100%" height="200" controls>
-                <source src="{{ asset('videos/vidio1.mp4') }}" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+        <div class="card-img" style="width:100%;height:200px;object-fit:cover;border-top-left-radius:.3rem;border-top-right-radius:.3rem;">
+            <iframe width="100%" height="100%" src="{{ $video->embed }}" frameborder="0" allowfullscreen></iframe>
         </div>
         <div class="card-body">
-            <a href="http://" class="text-dark textdecoration-none">
-                <h6>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h6>
+            <a href="{{ route('video', $video->id) }}" class="text-dark text-decoration-none">
+                <h6>{{ $video->title }}</h6>
             </a>
         </div>
     </div>
 </div>
+@endforeach
 <div class="col-md-6 mb-4">
     <div class="card h-100 shadow-sm border-0 rounded-lg">
         <div class="card-img">
@@ -271,27 +264,29 @@ adipisicing elit</h6>
 <!-- end video section -->
 </div>
 </div>
+
 <div class="col-md-4">
-<!-- agenda section -->
-<div class="title mb-4">
-<h4><i class="fa fa-calendar" aria-hidden="true"></i> AGENDA
-TERBARU</h4>
-</div>
-<div class="card mb-3 shadow-sm border-0">
-<div class="card-body">
-<h6>Lorem ipsum dolor sit amet, consectetur adipisicing
-elit</h6>
-<hr>
-<div>
-<i class="fa fa-map-marker" aria-hidden="true"></i>
-Aula Sekolah
-</div>
-<div class="mt-2">
-<i class="fa fa-calendar" aria-hidden="true"></i> 
-Juli 2020
-</div>
-</div>
-</div>
+    <!-- agenda section -->
+    <div class="title mb-4">
+        <h4><i class="fa fa-calendar" aria-hidden="true"></i> AGENDA TERBARU</h4>
+    </div>
+    @foreach($events as $event)
+    <div class="card mb-3 shadow-sm border-0">
+        <div class="card-body">
+        <a href="{{ route('agendasingle', ['id' => $event->id]) }}" class="text-decoration-none text-dark">
+            <h6>{{ $event->title }}</h6>
+            <hr>
+            <div>
+                <i class="fa fa-map-marker" aria-hidden="true"></i> {{ $event->location }}
+            </div>
+            <div class="mt-2">
+                <i class="fa fa-calendar" aria-hidden="true"></i> {{ \Carbon\Carbon::parse($event->date)->format('d-m-Y') }}
+            </div>
+        </div>
+    </div>
+    @endforeach
+
+
 <div class="card mb-3 shadow-sm border-0">
 <div class="card-body">
 <h6>Lorem ipsum dolor sit amet, consectetur adipisicing
@@ -395,6 +390,12 @@ Copyright © 2024 WIBU SCHOOL. All rights reserved.
 </footer>
 <script src="{{ asset('js/bootstrap.min.js') }}"></script>
 <script src="js/slider.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#myCarousel').carousel();
+    });
+</script>
+
    
 
 

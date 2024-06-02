@@ -23,7 +23,7 @@ aria-controls="navbarCollapse" aria-expanded="false" arialabel="Toggle navigatio
 <div class="collapse navbar-collapse" id="navbarCollapse">
 <ul class="navbar-nav mr-auto mb-2 mb-md-0">
 <li class="nav-item">
-<a class="nav-link" href="{{ route('berita') }}"><i class="fa fa-book-open"
+<a class="nav-link" href="{{ route('beritas') }}"><i class="fa fa-book-open"
  aria-hidden="true"></i> BERITA</a>
 </li>
 <li class="nav-item">
@@ -69,19 +69,20 @@ Galeri Video</a>
 </nav>
 <!-- end breadcrumb -->
 <div class="container-fluid mt-3 mb-5">
-<div class="row">
-<div class="col-md-6 mb-4" v-for="video in videos" :key="video.id">
-<div class="card h-100 shadow-sm border-0 rounded-lg">
-<div class="card-img" style="width:100%;height:300px;border-top-left-radius:.3rem;border-top-right-radius:.3rem;">
-    <video style="width:100%;height:100%;" controls>
-        <source src="{{ asset('videos/vidio1.mp4') }}" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-</div>
-<div class="card-body text-center">
-<h6>Judul Video</h6>
-</div>
-</div>
+    <div class="row">
+        @foreach($videos as $video)
+        <div class="col-md-6 mb-4">
+            <div class="card h-100 shadow-sm border-0 rounded-lg">
+                <div class="card-img" style="width:100%;height:300px;border-top-left-radius:.3rem;border-top-right-radius:.3rem;">
+                    <iframe width="100%" height="100%" src="{{ $video->embed }}" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="card-body text-center">
+                    <h6>{{ $video->title }}</h6>
+                </div>
+            </div>
+        </div>
+        @endforeach
+    </div>
 </div>
 <div class="col-md-6 mb-4" v-for="video in videos" :key="video.id">
 <div class="card h-100 shadow-sm border-0 rounded-lg">

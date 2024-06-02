@@ -23,7 +23,7 @@ aria-controls="navbarCollapse" aria-expanded="false" arialabel="Toggle navigatio
 <div class="collapse navbar-collapse" id="navbarCollapse">
 <ul class="navbar-nav mr-auto mb-2 mb-md-0">
 <li class="nav-item">
-<a class="nav-link" href="{{ route('berita') }}"><i class="fa fa-book-open"
+<a class="nav-link" href="{{ route('beritas') }}"><i class="fa fa-book-open"
  aria-hidden="true"></i> BERITA</a>
 </li>
 <li class="nav-item">

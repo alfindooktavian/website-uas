@@ -33,7 +33,7 @@ class VideoController extends Controller
     public function index()
     {
         $videos = Video::latest()->when(request()->q, function ($query, $search) {
-            $query->where('name', 'like', '%' . $search . '%');
+            $query->where('title', 'like', '%' . $search . '%');
         })->paginate(10);
 
         return view('admin.video.index', compact('videos'));

@@ -46,7 +46,7 @@
                                         <a href="{{ route('admin.tags.edit', $tag->id) }}" class="btn btn-sm btn-primary"><i class="fa fa-pencil-alt"></i></a>
                                         @endcan
                                         @can('tags.delete')
-                                        <button onClick="Delete({{ $tag->id }})" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+                                        <button onClick="deleteTag({{ $tag->id }})" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
                                         @endcan
                                     </td>
                                 </tr>

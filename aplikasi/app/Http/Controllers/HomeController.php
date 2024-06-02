@@ -2,8 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Photo;
+use App\Models\Video;
+use App\Models\Slider;
+use App\Models\Event;
+use App\Models\Post;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
+use Carbon\Carbon; // Import class Carbon
 
 class HomeController extends Controller
 {
@@ -14,7 +20,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth')->except(['showWelcome']);
+        $this->middleware('auth')->except(['showWelcome', 'showFoto','showBerita','showAgenda','showAgendasingle','showVideo','showKontak']);
     }
 
     /**
@@ -34,33 +40,76 @@ class HomeController extends Controller
      */
     public function showWelcome(): Renderable
     {
-        return view('welcome');
+        $sliders = Slider::all();
+        $photos = Photo::latest()->take(2)->get();
+        $videos = Video::latest()->take(2)->get();
+        $events = Event::latest()->take(3)->get();
+        $posts = Post::latest()->take(6)->get();
+        return view('welcome', compact('sliders','photos','videos','events','posts'));
     }
 
     // Metode lainnya...
-    public function showBerita(): Renderable
+    public function showBerita($id): Renderable
     {
-        return view('berita');
+        // Ambil data posting berdasarkan ID
+        $post = Post::findOrFail($id);
+
+        // Memformat tanggal dalam $post
+        $post->formatted_date = Carbon::parse($post->created_at)->format('d-m-Y');
+
+        // Kirim data posting ke view berita.blade.php
+        return view('berita', compact('post'));
+    }
+
+     // Metode lainnya...
+     public function showBeritas(): Renderable
+     {
+        $posts = Post::latest()->paginate(10);
+
+        // Memformat tanggal dalam $events sebelum mengirimkannya ke tampilan
+        foreach ($posts as $post) {
+            $post->formatted_date = Carbon::parse($post->date)->format('d-m-Y');
+        }
+
+        return view('beritas', compact('posts'));
     }
 
     public function showAgenda(): Renderable
     {
-        return view('agenda');
+        $events = Event::latest()->paginate(10);
+
+        // Memformat tanggal dalam $events sebelum mengirimkannya ke tampilan
+        foreach ($events as $event) {
+            $event->formatted_date = Carbon::parse($event->date)->format('d-m-Y');
+        }
+
+        return view('agenda', compact('events'));
     }
 
-    public function showAgendasingle(): Renderable
+    public function showAgendasingle($id): Renderable
     {
-        return view('agendasingle');
+        // Ambil data agenda berdasarkan ID
+        $event = Event::findOrFail($id);
+    
+        // Memformat tanggal dalam $event
+        $event->formatted_date = Carbon::parse($event->date)->format('d-m-Y');
+    
+        // Kirim data agenda ke view agendasingle.blade.php
+        return view('agendasingle', compact('event'));
     }
+    
 
-    public function showFoto(): Renderable
+    public function showFoto()
     {
-        return view('foto');
+       // Ambil data foto dari database
+       $photos = Photo::latest()->get();
+        return view('foto', compact('photos')); // Mengirim data foto ke view
     }
 
     public function showVideo(): Renderable
     {
-        return view('video');
+        $videos = Video::latest()->paginate(10);
+        return view('video', compact('videos'));
     }
 
     public function showKontak(): Renderable

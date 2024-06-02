@@ -91,4 +91,5 @@ class PhotoController extends Controller
             'status' => 'success'
         ]);
     }
+    
 }

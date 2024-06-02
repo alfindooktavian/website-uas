@@ -88,3 +88,5 @@ class SliderController extends Controller
         ]);
     }
 }
+
+

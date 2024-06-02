@@ -23,7 +23,7 @@ aria-controls="navbarCollapse" aria-expanded="false" arialabel="Toggle navigatio
 <div class="collapse navbar-collapse" id="navbarCollapse">
 <ul class="navbar-nav mr-auto mb-2 mb-md-0">
 <li class="nav-item">
-<a class="nav-link" href="{{ route('berita') }}"><i class="fa fa-book-open"
+<a class="nav-link" href="{{ route('beritas') }}"><i class="fa fa-book-open"
  aria-hidden="true"></i> BERITA</a>
 </li>
 <li class="nav-item">
@@ -69,23 +69,28 @@ Agenda</a>
 </nav>
 <!-- end breadcrumb -->
 <div class="container-fluid mt-3 mb-5">
-<div class="row">
-<div class="col-md-6 mb-3" v-for="event in events" :key="event.id">
-<a href="{{ route('agendasingle') }}" class="text-decoration-none text-dark">
-<div class="card mb-3 shadow-sm border-0">
-<div class="card-body">
-<h6>Judul Agenda</h6>
-<hr>
-<div>
-<i class="fa fa-map-marker" ariahidden="true"></i> Lokasi Agenda
-</div>
-<div class="mt-2">
-<i class="fa fa-calendar" ariahidden="true"></i> 09-11-2020
-</div>
-</div>
-</div>
-</a>
-</div>
+    <div class="row">
+        @foreach($events as $event)
+        <div class="col-md-6 mb-3">
+            <a href="{{ route('agendasingle', ['id' => $event->id]) }}" class="text-decoration-none text-dark">
+                <div class="card mb-3 shadow-sm border-0">
+                    <div class="card-body">
+                        <h6>{{ $event->title }}</h6>
+                        <hr>
+                        <div>
+                            <i class="fa fa-map-marker" aria-hidden="true"></i> {{ $event->location }}
+                        </div>
+                        <div class="mt-2">
+                            <i class="fa fa-calendar" aria-hidden="true"></i> {{ $event->formatted_date }}
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        @endforeach
+ 
+
+
 <div class="col-md-6 mb-3" v-for="event in events" :key="event.id">
 <a href="" class="text-decoration-none text-dark">
 <div class="card mb-3 shadow-sm border-0">

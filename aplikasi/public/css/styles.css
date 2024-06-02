@@ -63,3 +63,27 @@ body {
 .carousel-indicators .active .indicator-dot {
     background-color: #333;
 }
+
+.carousel-indicators {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.carousel-indicators li {
+    color: transparent;
+    border: none;
+    width: 28px; /* Lebar */
+    height: 4px; /* Tinggi */
+    margin: 0 5px;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Efek transisi */
+    border-radius: 8px; /* Radius sudut */
+}
+
+
+.carousel-indicators .active {
+    background-color: #fff; /* Warna latar belakang aktif */
+    border-radius: 8px; /* Bentuk persisgi agak oval */
+}

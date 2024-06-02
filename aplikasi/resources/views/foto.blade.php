@@ -23,7 +23,7 @@ aria-controls="navbarCollapse" aria-expanded="false" arialabel="Toggle navigatio
 <div class="collapse navbar-collapse" id="navbarCollapse">
 <ul class="navbar-nav mr-auto mb-2 mb-md-0">
 <li class="nav-item">
-<a class="nav-link" href="{{ route('berita') }}"><i class="fa fa-book-open"
+<a class="nav-link" href="{{ route('beritas') }}"><i class="fa fa-book-open"
  aria-hidden="true"></i> BERITA</a>
 </li>
 <li class="nav-item">
@@ -70,6 +70,21 @@ Galeri Foto</a>
 <!-- end breadcrumb -->
 <div class="container-fluid mt-3 mb-5">
 <div class="row">
+            @foreach ($photos as $photo)
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow-sm border-0 rounded-lg">
+                        <div class="card-img">
+                            <img src="{{ asset('storage/images/' . $photo->image) }}" class="w-100" style="height: 300px; object-fit: contain; border-top-left-radius: .3rem; border-top-right-radius: .3rem;">
+                        </div>
+                        <div class="card-body text-center">
+                            <h6>{{ $photo->caption }}</h6>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+</div>
+<!-- 
 <div class="col-md-4 mb-4" v-for="photo in photos" :key="photo.id">
 <div class="card h-100 shadow-sm border-0 rounded-lg">
 <div class="card-img">
@@ -130,20 +145,9 @@ style="height: 300px;object-fit: cover;border-top-left-radius: .3rem;border-topr
 </div>
 </div>
 </div>
-<div class="col-md-4 mb-4" v-for="photo in photos" :key="photo.id">
-<div class="card h-100 shadow-sm border-0 rounded-lg">
-<div class="card-img">
-<img src="{{ asset('images/gambar5.png') }}"
- class="w-100"
-style="height: 300px;object-fit: cover;border-top-left-radius: .3rem;border-topright-radius: .3rem;">
-</div>
-<div class="card-body text-center">
-<h6>Judul Foto</h6>
 </div>
 </div>
-</div>
-</div>
-</div>
+-->
 <footer>
 <div class="container-fluid" style="background: white;">
 <div class="row p-4">

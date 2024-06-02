@@ -89,8 +89,8 @@ class PostController extends Controller
         $post->tags()->attach($request->tags);
 
         return $post
-            ? redirect()->route('admin.post.index')->with('success', 'Data Berhasil Disimpan!')
-            : redirect()->route('admin.post.index')->with('error', 'Data Gagal Disimpan!');
+            ? redirect()->route('admin.posts.index')->with('success', 'Data Berhasil Disimpan!')
+            : redirect()->route('admin.posts.index')->with('error', 'Data Gagal Disimpan!');
     }
 
     /**

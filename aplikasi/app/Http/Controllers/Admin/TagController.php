@@ -69,9 +69,9 @@ class TagController extends Controller
         ]);
         
         if($tag){
-            return redirect()->route('admin.tag.index')->with(['success' => 'Data Berhasil Disimpan!']);
+            return redirect()->route('admin.tags.index')->with(['success' => 'Data Berhasil Disimpan!']);
         } else {
-            return redirect()->route('admin.tag.index')->with(['error' => 'Data Gagal Disimpan!']);
+            return redirect()->route('admin.tags.index')->with(['error' => 'Data Gagal Disimpan!']);
         }
     }
 
@@ -105,9 +105,9 @@ class TagController extends Controller
         ]);
 
         if($tag){
-            return redirect()->route('admin.tag.index')->with(['success' => 'Data Berhasil Diupdate!']);
+            return redirect()->route('admin.tags.index')->with(['success' => 'Data Berhasil Diupdate!']);
         } else {
-            return redirect()->route('admin.tag.index')->with(['error' => 'Data Gagal Diupdate!']);
+            return redirect()->route('admin.tags.index')->with(['error' => 'Data Gagal Diupdate!']);
         }
     }
 
