@@ -13,7 +13,7 @@
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" style="border-top: 0px solid rgb(175, 140, 226);">
         <div class="container-fluid">
             <a class="navbar-brand" href="{{ route('welcome') }}">
-                <img src="{{ asset('images/logo1.png') }}" alt="SMK INDONESIA Logo" style="height: auto; max-height: 30px;"> WIBU SCHOOL
+                <img src="{{ asset('images/logo1.png') }}" alt="SMK INDONESIA Logo" style="height: auto; max-height: 30px;"> ALFERENDI SCHOOL
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse"
                 data-target="#navbarCollapse"
@@ -59,9 +59,9 @@
                     <h5>TENTANG</h5>
                     <hr>
                     <p>
-                        This example is a quick exercise to illustrate how the
-                        top-aligned navbar works. As you scroll, this navbar remains in its original
-                        position.
+                    Alfrendi International School adalah lembaga pendidikan yang berkomitmen untuk memberikan 
+                    pengalaman belajar yang mendalam dan beragam bagi siswa-siswinya. Dengan motto "Menyongsong Masa Depan",
+                    
                     </p>
                 </div>
                 <div class="col-md-4">
@@ -77,8 +77,8 @@
                     <h5>KONTAK</h5>
                     <hr>
                     <p>
-                        <i class="fa fa-map-marker" aria-hidden="true"></i> This
-                        example is a quick exercise to illustrate how the top-aligned navbar works
+                        <i class="fa fa-map-marker" aria-hidden="true"></i> Telepon Nomor telepon sekolah yang dapat dihubungi
+                         untuk pertanyaan atau informasi lebih lanjut.
                         <i class="fas fa-phone"></i> +62813-3184-7703
                     </p>
                 </div>
@@ -87,7 +87,7 @@
         <div class="container-fluid bg-dark">
             <div class="row p-3">
                 <div class="text-center text-white font-weight-bold">
-                    Copyright © 2024 WIBU SCHOOL. All rights reserved.
+                    Copyright © 2024 ALFERENDI SCHOOL. All rights reserved.
                 </div>
             </div>
         </div>

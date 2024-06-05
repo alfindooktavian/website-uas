@@ -11,7 +11,7 @@
 <h1 class="bd-title mt-4 font-weight-bold"><i class="fa fa-bell"
 aria-hidden="true"></i> AGENDA
 </h1>
-<p class="bd-lead">Agenda terbaru tentang WIBU SCHOOL.</p>
+<p class="bd-lead">Agenda terbaru tentang ALFERENDI SCHOOL.</p>
 </div>
 </header>
 <!-- breadcrumb -->

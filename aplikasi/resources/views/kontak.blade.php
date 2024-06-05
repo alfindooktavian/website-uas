@@ -11,7 +11,7 @@
 <h1 class="bd-title mt-4 font-weight-bold"><i class="fa fa-phone"
 aria-hidden="true"></i> KONTAK
 </h1>
-<p class="bd-lead">Kontak WIBU SCHOOL.</p>
+<p class="bd-lead">Kontak ALFERENDI SCHOOL.</p>
 </div>
 </header>
 <!-- breadcrumb -->
@@ -52,9 +52,9 @@ tabindex="0"></iframe>
 <p>
 <i class="fa fa-map-marker" aria-hidden="true"></i>
 Jl. Jendral Sudirman No.83, Daerah Khusus Ibukota Jakarta, Indonesia
-<i class="fas fa-phone"></i> +62857-8585-2224
+<i class="fas fa-phone"></i> +62813-3184-7703
 <i class="fas fa-envelope"></i>
-info@wibuchool.sch.id
+info@alfrendichool.sch.id
 </p>
 </div>
 </div>

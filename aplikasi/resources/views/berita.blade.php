@@ -10,7 +10,7 @@
 <div class="container pt-md-1 pb-md-1">
 <h1 class="bd-title mt-4 font-weight-bold"><i class="fa fa-bookopen" aria-hidden="true"></i> BERITA
 </h1>
-<p class="bd-lead">Berita terbaru tentang WIBU SCHOOL.</p>
+<p class="bd-lead">Berita terbaru tentang ALFERENDI SCHOOL.</p>
 </div>
 </header>
 <!-- breadcrumb -->

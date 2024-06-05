@@ -11,7 +11,7 @@
 <h1 class="bd-title mt-4 font-weight-bold"><i class="fa fa-video"
 aria-hidden="true"></i> GALERI VIDEO
 </h1>
-<p class="bd-lead">Galeri Video terbaru tentang WIBU SCHOOL.</p>
+<p class="bd-lead">Galeri Video terbaru tentang ALFERENDI SCHOOL.</p>
 </div>
 </header>
 <!-- breadcrumb -->
